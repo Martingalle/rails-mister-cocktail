@@ -5,9 +5,6 @@
   <h1>Recipe</h1>
   <p><%= link_to "Back to cocktails", cocktails_path  %></p>
 
-  <%= cl_image_tag("uiogaork4b3jvqx8rs9k",
-      width: 400, height: 300, crop: :fill) %>
-
   <div class="cocktail-infos">
 
     <div class="receipe">
@@ -36,16 +33,18 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div class="review">
-    <%= link_to "Add a review", cocktail_path(@cocktail) %>
-    <%= render 'reviews/form', cocktail:@cocktail, review:@review %>
-  </div>
-
+<div class="container">
   <div class="reviews">
+    <h1>Reviews</h1>
     <% @reviews.each do |review| %>
       <%= review.description %>
     <% end %>
+  </div>
+  <div class="review">
+    <%= link_to "Add a review", cocktail_path(@cocktail) %>
+    <%= render 'reviews/form', cocktail:@cocktail, review:@review %>
   </div>
 </div>
 
