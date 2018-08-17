@@ -15,9 +15,9 @@
 //= require turbolinks
 //= require_tree .
 
-let bouton = document.querySelector('#add-a-dose');
-  if(bouton) {
-    bouton.addEventListener("click", (event) => {
+let bdose = document.querySelector('#add-a-dose');
+  if(bdose) {
+    bdose.addEventListener("click", (event) => {
 
       let form = document.querySelector("#form-new")
       form.classList.remove("hidden");
