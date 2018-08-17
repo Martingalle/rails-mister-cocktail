@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>RailsMisterCocktail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= csrf_meta_tags %>
@@ -11,14 +12,7 @@
   </head>
 
   <body>
-
-    <div class="wrapper">
-      <div class="container">
-        <%= yield %>
-      </div>
-    </div>
-
-
+    <%= yield %>
   <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
   <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
   </body>

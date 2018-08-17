@@ -8,3 +8,12 @@
 // layout file, like app/views/layouts/application.html.erb
 import 'bootstrap';
 console.log('Hello World from Webpacker')
+
+let bouton = document.querySelector('#add-a-dose');
+  if(bouton) {
+    bouton.addEventListener("click", (event) => {
+
+      let form = document.querySelector("#form-new")
+      form.classList.remove("hidden");
+    });
+  }

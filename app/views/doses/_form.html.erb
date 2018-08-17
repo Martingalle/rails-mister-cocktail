@@ -1,0 +1,7 @@
+
+<%= simple_form_for([cocktail, dose]) do |c| %>
+  <%= c.association :ingredient, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+  <%= c.input :description %>
+  <%= c.button :submit, class: "btn btn-block btn-primary" %>
+<% end %>
+

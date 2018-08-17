@@ -1,0 +1,42 @@
+<%= render 'banner', var1:@cocktail.name%>
+
+<div class="container">
+
+  <h1>Recipe</h1>
+  <p><%= link_to "Back to cocktails", cocktails_path  %></p>
+
+
+  <div class="cocktail-infos">
+
+    <div class="receipe">
+      <table>
+        <tr>
+          <th>Ingredient</th>
+          <th>Amount</th>
+          <th>Delete ?</th>
+        </tr>
+        <% @cocktail.doses.each do |dose| %>
+          <tr>
+            <td><%= dose.ingredient.name %></td>
+            <td><%= dose.description %></td>
+            <td><%= link_to icon('far', 'times-circle'), dose_path(dose), method: :delete, data: {confirm: "sure?"} %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="options">
+      <input type="submit" id="add-a-dose" value="add-a-dose" class = "btn btn-primary" style = "margin-left: 15px;">
+    </div>
+    </div>
+    <div class="form">
+      <div id="form-new" class="hidden">
+        <%= render 'doses/form', cocktail: @cocktail, dose:@dose %>
+      </div>
+    </div>
+  </div>
+
+  <div class="review">
+    <h2>Here, we'll check the reviews for <%= @cocktail.name %></h2>
+  </div>
+</div>
+
