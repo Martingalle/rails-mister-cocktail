@@ -15,4 +15,11 @@
 //= require turbolinks
 //= require_tree .
 
-import 'bootstrap';
+let bouton = document.querySelector('#add-a-dose');
+  if(bouton) {
+    bouton.addEventListener("click", (event) => {
+
+      let form = document.querySelector("#form-new")
+      form.classList.remove("hidden");
+    });
+  }

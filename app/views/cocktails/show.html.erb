@@ -5,6 +5,8 @@
   <h1>Recipe</h1>
   <p><%= link_to "Back to cocktails", cocktails_path  %></p>
 
+  <%= cl_image_tag("uiogaork4b3jvqx8rs9k",
+      width: 400, height: 300, crop: :fill) %>
 
   <div class="cocktail-infos">
 
@@ -12,7 +14,7 @@
       <table>
         <tr>
           <th>Ingredient</th>
-          <th>Amount</th>
+          <th>Description</th>
           <th>Delete ?</th>
         </tr>
         <% @cocktail.doses.each do |dose| %>
@@ -36,7 +38,7 @@
   </div>
 
   <div class="review">
-    <h2>Here, we'll check the reviews for <%= @cocktail.name %></h2>
+    <%= link_to "Add a review", cocktail_path(@cocktail%>
   </div>
 </div>
 
