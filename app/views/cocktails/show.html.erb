@@ -38,7 +38,15 @@
   </div>
 
   <div class="review">
-    <%= link_to "Add a review", cocktail_path(@cocktail%>
+    <%= link_to "Add a review", cocktail_path(@cocktail) %>
+    <%= render 'reviews/form', cocktail:@cocktail, review:@review %>
+  </div>
+
+  <div class="reviews">
+    <% @reviews.each do |review| %>
+      <%= review.description %>
+    <% end %>
   </div>
 </div>
+
 
