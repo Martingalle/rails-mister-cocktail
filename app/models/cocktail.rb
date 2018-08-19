@@ -5,4 +5,6 @@ class Cocktail < ApplicationRecord
 
   validates :name, uniqueness: true
   validates :name, presence: true
+
+  INGREDIENTS = [ "Sugar", "Lemon", "Mint", "Orange", "Ice" ]
 end

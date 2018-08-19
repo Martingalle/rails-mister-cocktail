@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Cocktails with ingredient in params</h1>
+  <div class="row">
+    <% @reviews.each do |review|  %>
+      <div class="col-xs-6 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://goo.gl/PYcd8K');">
+          <div class="card-description">
+             <h2><%= link_to review.cocktail.name, cocktail_path(review.cocktail_id) %></h2>
+          </div> <!-- end of card-description -->
+        </div> <!-- end of card -->
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Back to all cocktails", cocktails_path %>
+</div>
+

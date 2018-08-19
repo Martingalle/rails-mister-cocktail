@@ -1,33 +1,49 @@
 <div class="container">
   <div class="cocktail-header">
     <h1>List of all cocktails</h1>
-    <input type="submit" id="add-a-cocktail" value="add-a-cocktail" class = "btn btn-primary" style = "margin-left: 15px;">
-  </div>
-</div>
-
-<div class="row">
-    <div class="col-xs-6 col-xs-offset-2">
-        <div id="form-new"">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm"  style = "margin-left: 15px;">
+      Add a Cocktail
+    </button>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
           <%= render 'form', cocktail: @cocktail %>
         </div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
-    <% @cocktails.each do |c| %>
-      <div class="col-xs-6 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://goo.gl/PYcd8K');">
-          <div class="card-category">
-            <%= link_to icon('far', 'times-circle'), cocktail_path(c.id), method: :delete, data: {confirm: "sure?"}   %>
-          </div>
-          <div class="card-description">
-            <h2><%= link_to c.name, cocktail_path(c.id) %></h2>
+    <% if params[:ingredient].nil? %>
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-xs-6 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://goo.gl/PYcd8K');">
+            <div class="card-category">
+              <%= link_to icon('far', 'times-circle'), cocktail_path(cocktail.id), method: :delete, data: {confirm: "sure?"}   %>
+            </div>
+            <div class="card-description">
+              <h2><%= link_to cocktail.name, cocktail_path(cocktail.id) %></h2>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
+    <% else %>
+      <% @doses.each do |dose|  %>
+        <div class="col-xs-6 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://goo.gl/PYcd8K');">
+              <div class="card-category">
+                <%= link_to icon('far', 'times-circle'), cocktail_path(dose.cocktail_id), method: :delete, data: {confirm: "sure?"}   %>
+              </div>
+              <div class="card-description">
+                 <h2><%= link_to dose.cocktail.name, cocktail_path(dose.cocktail_id) %></h2>
+              </div> <!-- end of card-description -->
+          </div> <!-- end of card -->
+        </div>
+      <% end %>
     <% end %>
+  <%= link_to "Back to all cocktails", cocktails_path %>
   </div>
 </div>
 

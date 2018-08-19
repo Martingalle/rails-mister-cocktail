@@ -6,3 +6,13 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
+import 'bootstrap';
+
+let bdose = document.querySelector('#add-a-dose');
+if(bdose) {
+  bdose.addEventListener("click", (event) => {
+
+    let form = document.querySelector("#form-new")
+    form.classList.remove("hidden");
+  });
+}

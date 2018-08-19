@@ -1,0 +1,19 @@
+<div class="navbar-wagon navbar-wagon-brand">
+
+  <%= link_to image_tag('logo.png'), cocktails_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  <div class="navbar-wagon-right">
+      <%= link_to "Best", best_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Play a game", game_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  </div>
+  <div class="navbar-wagon-item">
+      <div class="dropdown">
+  <!--       <img src="https://kitt.lewagon.com/placeholder/users/martingalle" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"> -->
+        <div class="navbar-wagon-item navbar-wagon-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">By ingredient<span class="caret"></span></div>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <% Cocktail::INGREDIENTS.each do |ingredient| %>
+              <li><%= link_to ingredient.capitalize, cocktails_path(ingredient: ingredient), class: "navbar-wagon-item navbar-wagon-link" %></li>
+            <% end %>
+          </ul>
+      </div>
+    </div>
+</div>

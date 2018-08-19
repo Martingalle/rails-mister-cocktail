@@ -1,18 +1,34 @@
 class CocktailsController < ApplicationController
+
   def index
-    @cocktails = Cocktail.all
     @cocktail = Cocktail.new
+    @doses = Dose.all
+    @ingredients = Ingredient.all
+    if params[:ingredient]
+      return redirect_to cocktails_path unless params[:ingredient].in?(Cocktail::INGREDIENTS)
+      @ingredient = @ingredients.where(name: params[:ingredient])
+      @doses = @doses.where(ingredient_id: @ingredient)
+      @cocktails = Cocktail.all
+    else
+      @cocktails = Cocktail.all
+    end
+  end
+
+  def game
+  end
+
+  def best
+    @cocktails = Cocktail.all
+    @reviews = Review.all
+    @reviews = @reviews.where(:rating => [5])
   end
 
   def show
     @cocktail = Cocktail.find(params[:id])
     @reviews = Review.all
     @reviews = @reviews.where(cocktail_id: params[:id])
-
     @doses = Dose.all
-
     @doses = @doses.includes(:ingredient).where(cocktail_id: params[:id])
-
     @dose = Dose.new
     @review = Review.new
   end

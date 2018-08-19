@@ -11,7 +11,7 @@ class DosesController < ApplicationController
     if @dose.save
       redirect_to cocktail_path(@cocktail)
     else
-      redirect_to new_cocktail_dose_path
+      redirect_to cocktail_path(@cocktail)
     end
   end
 

@@ -14,13 +14,3 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-import 'bootstrap';
-
-let bdose = document.querySelector('#add-a-dose');
-  if(bdose) {
-    bdose.addEventListener("click", (event) => {
-
-      let form = document.querySelector("#form-new")
-      form.classList.remove("hidden");
-    });
-  }

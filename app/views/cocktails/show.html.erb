@@ -24,12 +24,15 @@
       </table>
     </div>
     <div class="options">
-      <input type="submit" id="add-a-dose" value="add-a-dose" class = "btn btn-primary" style = "margin-left: 15px;">
-    </div>
-    </div>
-    <div class="form">
-      <div id="form-new">
-        <%= render 'doses/form', cocktail: @cocktail, dose:@dose %>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm"  style = "margin-left: 15px;">
+        Add a Dose ?
+      </button>
+      <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <%= render 'doses/form', cocktail: @cocktail, dose: @dose %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -40,6 +43,13 @@
     <h1>Reviews</h1>
     <% @reviews.each do |review| %>
       <%= review.description %>
+      <% review.rating.times do %>
+        <i class='fa fa-star' style="color: #F9C72E;"></i>
+      <% end %>
+      <% (5 - review.rating).times do %>
+        <i class='fa fa-star' style="color: #CCCCCC;"></i>
+      <%=  %>
+      <% end %>
     <% end %>
   </div>
   <div class="review">
