@@ -1,12 +1,20 @@
 <div class="container">
   <h1>Cocktails with ingredient in params</h1>
   <div class="row">
-    <% @reviews.each do |review|  %>
+    <% @cocktails.each do |cocktail|  %>
       <div class="col-xs-6 col-sm-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://goo.gl/PYcd8K');">
           <div class="card-description">
-             <h2><%= link_to review.cocktail.name, cocktail_path(review.cocktail_id) %></h2>
+             <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
           </div> <!-- end of card-description -->
+          <div class="card-rating">
+            <% cocktail.rating_avg.times do %>
+              <i class='fa fa-star' style="color: #F9C72E;"></i>
+            <% end %>
+            <% (5-cocktail.rating_avg).times do %>
+              <i class='fa fa-star' style="color: #CCCCCC;"></i>
+            <% end %>
+          </div>
         </div> <!-- end of card -->
       </div>
     <% end %>

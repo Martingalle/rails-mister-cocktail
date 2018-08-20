@@ -10,8 +10,8 @@
   <!--       <img src="https://kitt.lewagon.com/placeholder/users/martingalle" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"> -->
         <div class="navbar-wagon-item navbar-wagon-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">By ingredient<span class="caret"></span></div>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <% Cocktail::INGREDIENTS.each do |ingredient| %>
-              <li><%= link_to ingredient.capitalize, cocktails_path(ingredient: ingredient), class: "navbar-wagon-item navbar-wagon-link" %></li>
+            <% Ingredient.all.each do |ingredient| %>
+              <li><%= link_to ingredient.name.capitalize, cocktails_path(ingredient: ingredient.name), class: "navbar-wagon-item navbar-wagon-link" %></li>
             <% end %>
           </ul>
       </div>

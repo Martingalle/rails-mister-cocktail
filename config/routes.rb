@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'best', to: "cocktails#best", as: :best
   get 'game', to: "cocktails#game", as: :game
+  get 'anagramme', to: "cocktails#anagramme", as: :anagramme
   resources :cocktails, only: [:index, :show, :new, :create, :destroy] do
     resources :doses, only: [:new, :create]
     resources :reviews, only: [:new, :create]
@@ -8,3 +9,4 @@ Rails.application.routes.draw do
 
    resources :doses, only: [:destroy]
 end
+

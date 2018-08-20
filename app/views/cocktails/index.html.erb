@@ -26,6 +26,14 @@
             <div class="card-description">
               <h2><%= link_to cocktail.name, cocktail_path(cocktail.id) %></h2>
             </div>
+            <div class="card-rating">
+              <% cocktail.rating_avg.times do %>
+                <i class='fa fa-star' style="color: #F9C72E;"></i>
+              <% end %>
+              <% (5-cocktail.rating_avg).times do %>
+                <i class='fa fa-star' style="color: #CCCCCC;"></i>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>
@@ -33,12 +41,20 @@
       <% @doses.each do |dose|  %>
         <div class="col-xs-6 col-sm-4">
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://goo.gl/PYcd8K');">
-              <div class="card-category">
-                <%= link_to icon('far', 'times-circle'), cocktail_path(dose.cocktail_id), method: :delete, data: {confirm: "sure?"}   %>
-              </div>
-              <div class="card-description">
-                 <h2><%= link_to dose.cocktail.name, cocktail_path(dose.cocktail_id) %></h2>
-              </div> <!-- end of card-description -->
+            <div class="card-category">
+              <%= link_to icon('far', 'times-circle'), cocktail_path(dose.cocktail_id), method: :delete, data: {confirm: "sure?"}   %>
+            </div>
+            <div class="card-description">
+               <h2><%= link_to dose.cocktail.name, cocktail_path(dose.cocktail_id) %></h2>
+            </div> <!-- end of card-description -->
+            <div class="card-rating">
+              <% dose.cocktail.rating_avg.times do %>
+                <i class='fa fa-star' style="color: #F9C72E;"></i>
+              <% end %>
+              <% (5-dose.cocktail.rating_avg).times do %>
+                <i class='fa fa-star' style="color: #CCCCCC;"></i>
+              <% end %>
+            </div>
           </div> <!-- end of card -->
         </div>
       <% end %>

@@ -1,11 +1,12 @@
 class CocktailsController < ApplicationController
-
   def index
     @cocktail = Cocktail.new
     @doses = Dose.all
     @ingredients = Ingredient.all
+    @all_ingredients = []
+    @ingredients.each {|ingredient| @all_ingredients << ingredient.name}
     if params[:ingredient]
-      return redirect_to cocktails_path unless params[:ingredient].in?(Cocktail::INGREDIENTS)
+      return redirect_to cocktails_path unless params[:ingredient].in?(@all_ingredients)
       @ingredient = @ingredients.where(name: params[:ingredient])
       @doses = @doses.where(ingredient_id: @ingredient)
       @cocktails = Cocktail.all
@@ -14,13 +15,12 @@ class CocktailsController < ApplicationController
     end
   end
 
-  def game
-  end
+  def game; end
 
   def best
-    @cocktails = Cocktail.all
+    @cocktails = Cocktail.joins(:reviews).group('cocktails.id').having('AVG(reviews.rating) >= 3')
     @reviews = Review.all
-    @reviews = @reviews.where(:rating => [5])
+    @reviews = @reviews.where(:rating => [3])
   end
 
   def show
@@ -48,7 +48,6 @@ class CocktailsController < ApplicationController
     @cocktails.destroy
     redirect_to cocktails_path
   end
-
 
   private
 

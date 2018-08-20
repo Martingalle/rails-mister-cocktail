@@ -7,13 +7,13 @@
   background-repeat: no-repeat;
   background-size: 100%;
 }
-#player1_race td.active {
+#cocktail_race td.active {
   background-image: image-url("player_1.png");
   background-size: 90px;
   background-position: center;
 }
 
-#player2_race td.active {
+#beer_race td.active {
   background-image: image-url("player_2.png");
   background-size: 60px;
   background-position: center;
@@ -29,4 +29,11 @@ td.arrivee {
   background-image: image-url("arrivee.jpg");
   background-size: 60px;
   background-position: center;
+}
+
+body h3 {
+  font-size: 20px;
+  img {
+  width: 40px;
+  }
 }

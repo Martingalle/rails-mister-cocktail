@@ -7,12 +7,19 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 import 'bootstrap';
+import { start } from '../components/race'
 
-let bdose = document.querySelector('#add-a-dose');
-if(bdose) {
-  bdose.addEventListener("click", (event) => {
 
-    let form = document.querySelector("#form-new")
-    form.classList.remove("hidden");
-  });
-}
+document.addEventListener("DOMContentLoaded", function(event) {
+
+  start();
+
+  let bdose = document.querySelector('#add-a-dose');
+  if(bdose) {
+    bdose.addEventListener("click", (event) => {
+
+      let form = document.querySelector("#form-new")
+      form.classList.remove("hidden");
+    });
+  }
+});

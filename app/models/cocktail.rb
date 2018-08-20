@@ -7,4 +7,9 @@ class Cocktail < ApplicationRecord
   validates :name, presence: true
 
   INGREDIENTS = [ "Sugar", "Lemon", "Mint", "Orange", "Ice" ]
+
+  def rating_avg
+    reviews.average(:rating).to_i
+  end
+
 end

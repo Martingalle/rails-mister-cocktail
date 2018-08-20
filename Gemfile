@@ -10,6 +10,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 # for images and for private key
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary'
+gem 'devise'
 gem 'carrierwave', '~> 1.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
