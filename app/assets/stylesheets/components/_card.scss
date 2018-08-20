@@ -46,10 +46,13 @@
 .card-link:hover {
   opacity: 0.1;
 }
-
 .card-rating {
+  display: flex;
   font-size: 15px;
   position:absolute;
   right: 15px;
   bottom: 23px;
+  i:hover {
+    color: yellow;
+  }
 }

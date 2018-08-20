@@ -27,12 +27,17 @@
               <h2><%= link_to cocktail.name, cocktail_path(cocktail.id) %></h2>
             </div>
             <div class="card-rating">
-              <% cocktail.rating_avg.times do %>
-                <i class='fa fa-star' style="color: #F9C72E;"></i>
-              <% end %>
-              <% (5-cocktail.rating_avg).times do %>
-                <i class='fa fa-star' style="color: #CCCCCC;"></i>
-              <% end %>
+              <div class="jaune">
+                <% cocktail.rating_avg.times do %>
+                  <!-- <i class='fa fa-star' style="color: #F9C72E;"></i> -->
+                  <%= link_to icon('fa', 'star'), "#", style:"color: #F9C72E;" %>
+                <% end %>
+              </div>
+              <div class="grey">
+                <% (5-cocktail.rating_avg).times do %>
+                  <%= link_to icon('fa', 'star'), "#", style:"color: #CCCCCC;" %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
